@@ -9,10 +9,10 @@
 // If the input or the result is an empty string it must return false.
 
 function generateHashtag(str) {
-  if (str === '') {
+  if (str.trim() === '') {
     return false
   }
-  if (str.replace(/[\s\t]+/g, ' ').split(' ').join('').trim().length < 139) {
+  if (str.replace(/[\s\t]+/g, ' ').split(' ').join('').trim().length < 140) {
     return '#' + str.replace(/[\s\t]+/g, ' ').split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join('')
   } else {
     return false
@@ -25,3 +25,4 @@ console.log(generateHashtag(""));
 console.log(generateHashtag('hello'));
 console.log(generateHashtag('hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello'));
 console.log(generateHashtag("code" + " ".repeat(140) + "wars"));
+console.log(generateHashtag(" ".repeat(200)))
