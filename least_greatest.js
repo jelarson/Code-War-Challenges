@@ -15,14 +15,8 @@ function highAndLow(numbers) {
 console.log(highAndLow("1 2 -3 4 5")); // return "5 -3"
 
 function highAndLow1(numbers) {
-  // arr = []
-  // numbers.split(' ').forEach(num => {
-  //   arr.push(Number(num))
-  // })
   nums = numbers.split(' ')
   return `${Math.max(...nums)} ${Math.min(...nums)}`
 }
 
 console.log(highAndLow1('1 2 -3 4 5'));
-
-// .sort((a, b) => a - b)
