@@ -17,3 +17,10 @@ console.log(moveZeros([false, 1, 0, 1, 2, 0, 1, 3, "a"])) // returns[false,1,1,2
 const moveZeros1 = arr => arr.reduceRight((newArr, elem) => elem === 0 ? [...newArr, elem] : [elem, ...newArr], [])
 
 console.log(moveZeros1([false, 1, 0, 1, 2, 0, 1, 3, "a"])) // returns[false,1,1,2,1,3,"a",0,0]
+
+
+var myArray = ['a', '1', 'a', 2, '1'];
+
+let unique = [...new Set(myArray)];
+
+console.log(unique)
