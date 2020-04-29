@@ -14,7 +14,6 @@ function persistence(num) {
     emptyArray.push(Number(x))
   }
   result = emptyArray.reduce((a, b) => a * b, 1, counter++)
-  // counter++
   if (result.toString().length === 1) {
     return counter
   } else {
