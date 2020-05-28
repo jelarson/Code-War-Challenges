@@ -19,11 +19,11 @@ function pyramid(num) {
 // pyramid(3);
 pyramid(27);
 
-let str = "string";
-console.log(str);
-str = str.slice(1, 2);
-console.log(str);
+// let str = "string";
+// console.log(str);
+// str = str.slice(1, 2);
+// console.log(str);
 
-let setty = new Set([2, 3, 4, 3]);
-console.log(Array.from("hello", (letter) => letter.toUpperCase()));
-console.log(setty);
+// let setty = new Set([2, 3, 4, 3]);
+// console.log(Array.from("hello", (letter) => letter.toUpperCase()));
+// console.log(setty);
