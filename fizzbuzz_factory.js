@@ -56,5 +56,5 @@ console.log(
   )
 );
 
-console.log(Math.max(3, 5, 15, 21, 99, 100));
-console.log(Math.min(3, 5, 15, 21, 99, 100));
+// console.log(Math.max(3, 5, 15, 21, 99, 100));
+// console.log(Math.min(3, 5, 15, 21, 99, 100));
