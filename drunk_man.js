@@ -11,15 +11,7 @@ function wdm(talk) {
     .split(" ")
     .filter(Boolean)
     .join(" ");
-  // const str = arr.map((word) => {
-  //   if (word !== " ") {
-  //     return word;
-  //   }
-  // });
-  // const str = arr.filter(Boolean);
   return arr;
-
-  // let arr = Array.from(talk, (char) => {if(char === ' '){return char}})
 }
 
 console.log(wdm(test));
