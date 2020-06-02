@@ -232,3 +232,11 @@ function biggest(nums) {
 
 console.log(biggest([3, 30, 96, 994, 34, 5, 9, 99, 97, 98]));
 // console.log(biggest([3, 30, 96]));
+
+// top answer
+const biggest = (nums) =>
+  nums
+    .map(String)
+    .sort((a, b) => b + a - (a + b))
+    .join("")
+    .replace(/^0+(.)/, "$1");
