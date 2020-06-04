@@ -79,8 +79,26 @@ function highTest(student) {
   return ans;
 }
 
-console.log(highTest(scores1));
-console.log(highTest(scores2));
-console.log(highTest(scores3));
-console.log(highTest(scores4));
-console.log(highTest(scores5));
+// console.log(highTest(scores1));
+// console.log(highTest(scores2));
+// console.log(highTest(scores3));
+// console.log(highTest(scores4));
+// console.log(highTest(scores5));
+
+function testCollection(scores) {
+  let scoresArr = [];
+  scores.forEach((student) => {
+    let scoreTitle = Object.keys(student);
+    let test3 = scoreTitle.filter((key) => {
+      return student[key] >= 90;
+    });
+    let nameyName = student.name;
+    const ans = {
+      [nameyName]: test3,
+    };
+    scoresArr.push(ans);
+  });
+  return scoresArr;
+}
+
+console.log(testCollection(testScores));
