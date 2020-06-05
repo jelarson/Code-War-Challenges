@@ -87,6 +87,7 @@ function highTest(student) {
 
 function testCollection(scores) {
   let scoresArr = [];
+  let lengths = [];
   scores.forEach((student) => {
     let scoreTitle = Object.keys(student);
     let test3 = scoreTitle.filter((key) => {
@@ -97,8 +98,28 @@ function testCollection(scores) {
       [nameyName]: test3,
     };
     scoresArr.push(ans);
+    lengths.push(test3.length);
   });
-  return scoresArr;
+  // return scoresArr.sort((a, b, key) => {
+  //   b[key].length - a[key].length;
+  // });
+  // return scoresArr[0].jimmy.length;
+  console.log(lengths);
+  let highLow = [];
+  lengths.forEach((num) => {
+    let ind = lengths.indexOf(Math.max(...lengths));
+    lengths[ind] = 0;
+    highLow.push(ind);
+  });
+  // console.log(lengths);
+  // lengths.splice(0, 1);
+  console.log(lengths);
+  console.log(highLow);
+  let newAns = [];
+  highLow.forEach((elem) => {
+    newAns.push(scoresArr[elem]);
+  });
+  return newAns;
 }
 
 console.log(testCollection(testScores));

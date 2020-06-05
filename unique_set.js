@@ -26,5 +26,5 @@ var uniqueInOrder = function (iterable) {
   // return powerMove;
 };
 
-console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+// console.log(uniqueInOrder("AAAABBBCCDAABBB"));
 console.log(uniqueInOrder([1, 2, 3, 3]));
