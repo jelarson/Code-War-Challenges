@@ -12,6 +12,7 @@ function pyramid(num) {
     const level = [];
     level.push(" ".repeat(dif));
     level.push("*".repeat(ast));
+    level.push(" ".repeat(dif));
     console.log(level.join(""));
   }
 }
