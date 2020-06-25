@@ -11,7 +11,7 @@ function order(words) {
       }
     });
   });
-  console.log(nums);
+  // console.log(nums);
   // console.log(wordArr);
   nums.sort().forEach((num) => {
     wordArr.forEach((word) => {
