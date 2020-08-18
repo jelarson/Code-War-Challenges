@@ -9,17 +9,17 @@
 function cakes(recipe, available) {
   let answer = []
   const keys = Object.keys(recipe)
-  const earlyOut = keys.every((key) => {
-    return available.hasOwnProperty(key);
-  });
-  if (earlyOut === false){
-    return 0
-  } else {
+  // const earlyOut = keys.every((key) => {
+  //   return available.hasOwnProperty(key);
+  // });
+  // if (earlyOut === false){
+  //   return 0
+  // } else {
     keys.forEach(key => {
       answer.push(Math.floor(available[key] / recipe[key]))
     })
     return Math.min(...answer)
-  }
+  // }
 }
 
 console.log(cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200}))
@@ -37,4 +37,63 @@ function cakes(recipe, available) {
 
 function cakes(recipe, available) {
   return Math.min(...Object.keys(recipe).map(e => available[e]/recipe[e]>>0));
+}
+
+// Ryan's solution
+
+function cakes(recipe, available) {
+  let cakes = 0
+  const check = (obj) => Object.keys(obj).every(key => obj[key] >= 0)
+  const bake = () => {
+    for(ingredient in recipe){
+      available[ingredient] = available[ingredient] - recipe[ingredient]
+    }
+    if(check(available)){
+      cakes++
+      return bake()
+    } else {
+      return cakes
+    }
+  }
+  return bake()
+}
+
+// hard coded answer
+
+function cakes(recipe, available) {
+  let answer = 100000000000
+  for(ingredient in recipe){
+    if(!available[ingredient]) return 0
+    const num = Math.floor(available[ingredient] / recipe[ingredient])
+    answer = Math.min(answer, num)
+  }
+  return answer
+}
+
+// no hard code
+
+function cakes(recipe, available) {
+  let answer
+  for(ingredient in recipe){
+    if(!available[ingredient]) return 0
+    const num = Math.floor(available[ingredient] / recipe[ingredient])
+    if(answer){
+      answer = Math.min(answer, num)
+    } else {
+      answer = num
+    }
+  }
+  return answer
+}
+
+
+function cakes(recipe, available) {
+  let answer
+  for(ingredient in recipe){
+    if(!available[ingredient]) return 0
+    const num = Math.floor(available[ingredient] / recipe[ingredient])
+      answer && (answer = Math.min(answer, num))
+      !answer && (answer = num)
+  }
+  return answer
 }
