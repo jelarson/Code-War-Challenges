@@ -12,11 +12,18 @@ function generateBC(url, separator) {
       return true
     }
   })
+  let tempArr = []
   let finalArr = ['<a href="/">HOME</a>', separator]
   for (let i = 0; i < urlArr.length; i++){
-    if(i < urlArr.length - 1){
+    if(i === 0){
       finalArr.push(`<a href="/${urlArr[i]}/">${urlArr[i].toUpperCase()}</a>`)
       finalArr.push(separator)
+      tempArr.push(`/${urlArr[i]}`)
+    }
+    if(i > 0 && i < urlArr.length - 1){
+      finalArr.push(`<a href="${tempArr.join('')}/${urlArr[i]}/">${urlArr[i].toUpperCase()}</a>`)
+      finalArr.push(separator)
+      tempArr.push(`/${urlArr[i]}`)
     }
     if (i === urlArr.length - 1){
       finalArr.push(`<span class="active">${urlArr[i].toUpperCase()}</span>`)
