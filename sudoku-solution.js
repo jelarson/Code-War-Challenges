@@ -30,13 +30,11 @@ function validSolution(board){
   for (let i = 0; i < 3; i++){
     for (let b = 0; b < 3; b++){
       const mySet = new Set(gridArr[i][b])
-      console.log(mySet)
       if ([...mySet].length !== 9){
         return false
       }
     } 
   }
-    console.log(gridArr)
   return true
 }
 
@@ -73,3 +71,53 @@ console.log(validSolution([
 //   [2, 8, 7, 4, 1, 9, 6, 3, 5],
 //   [3, 0, 0, 4, 8, 1, 1, 7, 9]
 // ]))
+
+
+// ryan's solution in progress
+function validSolution(board){
+  let isValid = true
+  let spacer = 0
+  const grids = [[],[],[],[],[],[],[],[],[]]
+  board.forEach((row, idx) => {
+    const mySet = new Set(row)
+    if(mySet.size !== 9){
+      isValid = false
+    }
+    const vert = []
+    for(let i = 0; i < 9; i++){
+      vert.push(board[i][idx])
+      switch(row){
+       case row <= 2:
+          grids[spacer].push(board[row][i])
+       case row > 2 && row <= 5:
+       case row > 5:
+      }
+    }
+    const mySet2 = new Set(vert)
+    if(mySet2.size !== 9){
+      isValid = false
+    }
+  })
+  return isValid
+}
+
+// top Solution
+
+function equals45(n){
+  return n == 45;
+}
+
+function validSolution(board){
+  var sumh = [0,0,0,0,0,0,0,0,0];
+  var sumv = [0,0,0,0,0,0,0,0,0];
+  osums = [[0,0,0],[0,0,0],[0,0,0]];
+  for (var i=0;i<9;i++){
+    for (var j=0;j<9;j++){
+      sumh[i] += board[i][j];
+      sumv[j] += board[i][j];
+      osums[Math.floor(i/3)][Math.floor(j/3)] += board[i][j];
+    }
+  }
+  for (var i=0;i<3;i++) if (!osums[i].every(equals45)) return false;
+  return (sumh.every(equals45) && sumv.every(equals45));
+}
