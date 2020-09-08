@@ -1,20 +1,19 @@
 // https://www.codewars.com/kata/529bf0e9bdf7657179000008/train/javascript
 
 function validSolution(board){
-  const gridArr = [[[], [], []], [[], []], [[],[],[]]]
+  const gridArr = [[[], [], []], [[], [], []], [[],[],[]]]
   for(let i = 0; i < 9; i++){
     const copy = [...board[i]]
-    // if ((i+1) % 3 === 0){
-      if(i === 2){
-      let gridNum = (i+1) /3
-      let gridBox = 0
-      gridArr[gridNum][gridBox].push(...board[i].slice(i -2,i + 1))
-      gridBox ++
-      gridArr[gridNum][gridBox].push(...board[i].slice(i + 1,i + 4))
-      gridBox ++
-      gridArr[gridNum][gridBox].push(...board[i].slice(i +4,i + 7))
-      
+    let spacer = 0
+    if(i > 2){
+      spacer++
+      if (i>5){
+        spacer++
+      }
     }
+    gridArr[spacer][0].push(...board[i].slice(0,3))
+    gridArr[spacer][1].push(...board[i].slice(3,6))
+    gridArr[spacer][2].push(...board[i].slice(6,9))
     if (copy.sort()[i] !== i + 1){
       return false
     }
@@ -28,13 +27,17 @@ function validSolution(board){
       }
     }
   }
-  // let gridTop = 3
-  // let gridBottom = 0
-  // for(let i = gridBottom; i < gridTop; i++){
-    
-    // }
+  for (let i = 0; i < 3; i++){
+    for (let b = 0; b < 3; b++){
+      const mySet = new Set(gridArr[i][b])
+      console.log(mySet)
+      if ([...mySet].length !== 9){
+        return false
+      }
+    } 
+  }
     console.log(gridArr)
-  // return true
+  return true
 }
 
 // console.log(validSolution([ 
