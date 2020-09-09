@@ -129,6 +129,30 @@ function validSolution(board){
   return allChecks.every(grid => new Set(grid).size === 9)
 }
 
+// Ryan's solution with comments
+
+function validSolution(board){
+  // allChecks has the default 9 grid arrays preset.
+  const allChecks = [[],[],[],[],[],[],[],[],[]]
+  let rowBoxOffset = 0
+  board.forEach((row, boardIdx) => {
+    const vert = []
+    for(let i = 0; i < 9; i++){
+      vert.push(board[i][boardIdx]) // push to the vertical row we're making inside this for loop
+      // logic to decide which array to push to for grid - start
+      let colBoxOffset = 0
+      boardIdx >= 3 && (rowBoxOffset = 3) // if we're past row 2, we need to skip the first 3 grid arrays when pushing
+      boardIdx >= 6 && (rowBoxOffset = 6) // if we're past row 5, same type of thing
+      i >= 3 && (colBoxOffset = 1) // if we're on index 0-2, we push to the first array in column, if past 2, we want to push to the          second array, and past 5, to the third. 
+      i >= 6 && (colBoxOffset = 2)
+      allChecks[rowBoxOffset + colBoxOffset].push(board[boardIdx][i]) // using the combo of rowBoxOffset and colBoxOffset we should push to the correct grid array. 
+      // logic to decide which array to push to for grid - end
+    }
+    allChecks.push(row, vert) // push the horizontal and vertical rows to the list of things we'll check
+  })
+  return allChecks.every(gridOrRow => new Set(gridOrRow).size === 9) // the every method will return true or false
+}
+
 // top Solution
 
 function equals45(n){
