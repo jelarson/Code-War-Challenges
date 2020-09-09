@@ -1,22 +1,28 @@
 // https://www.codewars.com/kata/529bf0e9bdf7657179000008/train/javascript
 
 function validSolution(board){
+  // array containing 3 arrays that each contain 3 empty arrays to build the 3x3 box
   const gridArr = [[[], [], []], [[], [], []], [[],[],[]]]
   for(let i = 0; i < 9; i++){
     const copy = [...board[i]]
+    // does this spacer look familiar?
     let spacer = 0
+    // warning: hard coded uglyness coming in... Spacer increases depending on value of i
     if(i > 2){
       spacer++
       if (i>5){
         spacer++
       }
     }
+    // more hard coded uglyness - push into the right array using the 'spacer'. This builds out the 3x3 boxes in the 'gridArr'
     gridArr[spacer][0].push(...board[i].slice(0,3))
     gridArr[spacer][1].push(...board[i].slice(3,6))
     gridArr[spacer][2].push(...board[i].slice(6,9))
+    // my horizontal check - checking sorted array values against i + 1
     if (copy.sort()[i] !== i + 1){
       return false
     }
+    // my vertical check - using similar logic to horizontal check
     const arr = []
     for(let b = 0; b < 9; b++){
       arr.push(board[b][i])
@@ -27,6 +33,7 @@ function validSolution(board){
       }
     }
   }
+  // checking 3x3 box values - using sets this time so I didn't need to nest ANOTHER for loop - should also look a little familiar
   for (let i = 0; i < 3; i++){
     for (let b = 0; b < 3; b++){
       const mySet = new Set(gridArr[i][b])
@@ -99,6 +106,27 @@ function validSolution(board){
     }
   })
   return isValid
+}
+
+// Ryan's finished solution
+
+function validSolution(board){
+  const allChecks = [[],[],[],[],[],[],[],[],[]]
+  let rowBoxOffset = 0
+  board.forEach((row, boardIdx) => {
+    const vert = []
+    for(let i = 0; i < 9; i++){
+      vert.push(board[i][boardIdx])
+      let colBoxOffset = 0
+      boardIdx >= 3 && (rowBoxOffset = 3)
+      boardIdx >= 6 && (rowBoxOffset = 6)
+      i >= 3 && (colBoxOffset = 1)
+      i >= 6 && (colBoxOffset = 2)
+      allChecks[rowBoxOffset + colBoxOffset].push(board[boardIdx][i])
+    }
+    allChecks.push(row, vert)
+  })
+  return allChecks.every(grid => new Set(grid).size === 9)
 }
 
 // top Solution
