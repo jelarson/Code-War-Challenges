@@ -13,12 +13,6 @@ function anagram(string, stringTwo) {
 }
 const myName = 'jesse'
 
-objName[myName]
-obj.jesse
-
-obj['name']
-obj.name
-
 // console.log(anagram('A gentleman', 'Elegant man'))
 console.log(anagram('gentleman', 'Elegant man'))
 // console.log(anagram('older and wiser', 'I learned words'))
