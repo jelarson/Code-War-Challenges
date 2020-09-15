@@ -57,3 +57,22 @@ function mazeRunner(maze, directions) {
 console.log(mazeRunner(maze, ["N","N","N","N","N","E","E","S","S","E","E","N","N","E"]))
 console.log(mazeRunner(maze, ["N","N","N","N","N","E","E","E","E","E","W","W"]))
 console.log(mazeRunner(maze, ["N","N","N","N","N","E","E","S","S","S","S","S","S"]))
+
+// top answer
+
+function mazeRunner(maze, dirs) {
+  var y = maze.findIndex(arr => arr.includes(2));
+  var x = maze[y].indexOf(2);
+  var curPos;
+  for (var i = 0; i < dirs.length; i++) {
+    if (dirs[i] === 'N') y--;
+    if (dirs[i] === 'S') y++;
+    if (dirs[i] === 'W') x--;
+    if (dirs[i] === 'E') x++;
+    if (!maze[y]) return 'Dead';
+    curPos = maze[y][x];
+    if (curPos === 3) return 'Finish';
+    if (curPos === 1 || curPos === undefined) return 'Dead';
+  }
+  return 'Lost';
+}
