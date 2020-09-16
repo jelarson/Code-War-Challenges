@@ -30,3 +30,22 @@ const obj = {
   }
 
   console.log(leaf(obj))
+
+  // Ryan's answer
+
+  const objChecker = (obj) => {
+    const arr = [...Object.values(obj)]
+    const getValues = (list) => {
+      const check = list.every(val => typeof val !== 'object')
+      if(check) {
+        return list.every(val => val === list[0])
+      }
+      for(let i = 0; i < list.length; i++){
+        if(typeof list[i] === 'object'){
+          list = [...list.slice(0, i),...Object.values(list[i]) ,...list.slice(i + 1)]
+          return getValues(list)
+        }
+      }
+    }
+    return getValues(arr)
+  }
