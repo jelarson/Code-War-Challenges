@@ -45,3 +45,8 @@ function solve(arr){
   for(var n of arr) r[n]=r[n]+1||1
   return arr.slice().sort((a,b)=>r[b]-r[a]||a-b)
 }
+
+// ryan's solution
+
+const solve = (arr) => arr.map((el, idx, orig) => [el, orig.reduce((total, next) => total + (next === el ? 1: 0), 0)]).sort((a, b) => a[1] === b[1] ? b[0] - a[0] : a[1] - b[1]).reverse().map(el => el[0])
+
