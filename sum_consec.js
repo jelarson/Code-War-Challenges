@@ -2,7 +2,6 @@
 
 function sumConsecutives(s) {
   const ans = []
-  let active = true
   let currentStrkNum = 0
   let currentStrk = []
 
@@ -22,8 +21,6 @@ function sumConsecutives(s) {
       currentStrk = []
     }
     }
-  
-  
   return ans
 }
 
@@ -53,4 +50,10 @@ function sumConsecutives(s) {
     }
   }
   return sums;
+}
+
+// ryan's solution
+
+function sumConsecutives(s) {
+  return s.reduce((solution, current, idx, orig) => orig[idx - 1] === current ? [...solution.slice(0, solution.length -1), current + solution[solution.length - 1]] : [...solution, current], [])
 }
