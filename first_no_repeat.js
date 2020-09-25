@@ -11,3 +11,26 @@ function firstNonRepeatingLetter(s) {
 console.log(firstNonRepeatingLetter('stress'))
 console.log(firstNonRepeatingLetter('sTreSS'))
 
+// top answer
+
+function firstNonRepeatingLetter(s) {
+  for(var i in s) {
+    if(s.match(new RegExp(s[i],"gi")).length === 1) {
+      return s[i];
+    }
+  }
+  return '';
+}
+
+// ryan's answer with regex
+function firstNonRepeatingLetter(s) {
+  const lower = s.toLowerCase()
+  const found = [...lower].find((letter) => lower.match(new RegExp(letter, 'g')).length === 1) || ""
+  return s.indexOf(found) === -1 ? found.toUpperCase() : found
+}
+
+// ryan's best answer
+
+function firstNonRepeatingLetter(s) {
+  return [...s].find((letter) => s.match(new RegExp(letter, 'gi')).length === 1) || ""
+}
