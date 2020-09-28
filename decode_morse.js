@@ -46,3 +46,19 @@ decodeMorse = function(morseCode){
 console.log(decodeMorse('.... . -.--   .--- ..- -.. .'))
 console.log(decodeMorse('... --- ...'))
 console.log(decodeMorse('      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-  '))
+
+// top answer using MORSE_CODE library
+
+decodeMorse = function(morseCode){
+  return morseCode
+    .trim()
+    .split(/  | /)
+    .map( (code) => MORSE_CODE[code] || ' ')
+    .join('');
+}
+
+// one liner
+
+decodeMorse = function(morseCode){
+  return morseCode.trim().split(' ').map(a => MORSE_CODE[a] || ' ').join('').replace(/\s+/g, ' ');
+}
