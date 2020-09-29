@@ -13,3 +13,16 @@ function solve(n){
 }
 
 console.log(solve(13))
+// top answer
+function solve(n){
+
+  let i = 1
+
+  while (i < n) {
+    if ((Math.sqrt(((i * i) + n)) % 1) === 0) {
+      return i * i
+    }
+    i++
+  }
+  return -1
+}
