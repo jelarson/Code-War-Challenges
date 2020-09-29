@@ -29,10 +29,24 @@ function isInMiddle(seq) {
     arr.pop()
     arr.shift()
   }
-  return arr
+  return arr.join('').includes('abc')
 }
 
 console.log(isInMiddle('abcabcabc'))
 console.log(isInMiddle('abcabcabcabc'))
 console.log(isInMiddle('12345abc6789'))
 console.log(isInMiddle('AabcBBB'))
+
+// top answer with recursion
+const isInMiddle = str =>
+  str.length <= 4 ? str.includes('abc') : isInMiddle(str.slice(1, -1));
+
+// top answer while loop
+
+function isInMiddle(seq) {
+
+  while (seq.length > 4) {
+    seq = seq.slice(1, -1);
+  }
+  return seq.indexOf("abc") >= 0;
+}
