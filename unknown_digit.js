@@ -14,21 +14,25 @@ function solveExpression(exp) {
   } else{
     exprArr = b.split(opp)
   }
+  const arr = [1,2,3,4,5,6,7,8,9,0]
   for(let i = 0; i <= 9; i++){
-    if (eval(`${Number(exprArr[0].replace('?', i))} ${opp} ${Number(exprArr[1].replace('?', i))}`) === Number(a.replace('?', i))){
-      return i
+    const regex = /[?]/g
+    if (eval(`${Number(exprArr[0].replace(regex, arr[i]))} ${opp} ${Number(exprArr[1].replace(regex, arr[i]))}`) === Number(a.replace(regex, arr[i]))){
+      return arr[i]
     }
   } 
   return -1
 }
 
-console.log(solveExpression('1+1=?'))
+// console.log(solveExpression('1+1=?'))
 // 2
-console.log(solveExpression('123*45?=5?088'))
+// console.log(solveExpression('123*45?=5?088'))
 // 6
-console.log(solveExpression('-5?*-1=5?'))
+// console.log(solveExpression('-5?*-1=5?'))
 // 0
-console.log(solveExpression('-5?--1=5?'))
+// console.log(solveExpression('-5?--1=5?'))
 // -1
-console.log(solveExpression('19--45=5?'))
+// console.log(solveExpression('19--45=5?'))
 // -1
+
+console.log(solveExpression('??*??=302?'))
