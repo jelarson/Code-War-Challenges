@@ -80,3 +80,46 @@ function solution(nums){
     .map(arr => arr.length > 2 ? `${arr[0]}-${arr[arr.length-1]}` : arr)
     .join(',');
 }
+
+// ryan's solutions
+
+function solution(list){
+  let str = ''
+  const temp = []
+  list.forEach(item => {
+    const check = temp[temp.length -1] || ''
+     if(check === (item - 1)){
+       let num = temp.pop()
+       temp.push({from: num, to: item})
+     } else {
+       check.to === (item - 1) ? (check.to = item) : temp.push(item)
+     }
+   })
+    temp.forEach(item => {
+      if(typeof item === 'object'){
+        (item.to > item.from + 1) ? (str += `${item.from}-${item.to},`) : str += `${item.from},${item.to},`
+      } else {
+        str += `${item},`
+      }
+    })
+  return str.slice(0, -1)
+}
+
+function solution(list){
+  const temp = list.reduce((arr, item) => {
+    const check = arr[arr.length -1] || ''
+     if(check === (item - 1)){
+       let num = arr.pop()
+       return [...arr, {from: num, to: item}]
+     }
+    check.to === (item - 1) ? (check.to = item) : arr.push(item)
+    return arr
+   }, [])
+  const final = temp.reduce((arr, item) => {
+      if(typeof item === 'object'){
+        return [...arr, (item.to > item.from + 1) ? `${item.from}-${item.to}` : `${item.from},${item.to}`] 
+      }
+      return [...arr, item]
+    }, [])
+  return final.join(',')
+}
