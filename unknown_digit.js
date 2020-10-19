@@ -17,8 +17,12 @@ function solveExpression(exp) {
   const arr = [1,2,3,4,5,6,7,8,9,0]
   for(let i = 0; i <= 9; i++){
     const regex = /[?]/g
-    if (eval(`${Number(exprArr[0].replace(regex, arr[i]))} ${opp} ${Number(exprArr[1].replace(regex, arr[i]))}`) === Number(a.replace(regex, arr[i]))){
-      return arr[i]
+    const firstExp = Number(exprArr[0].replace(regex, i))
+    const secondExp = Number(exprArr[1].replace(regex, i))
+    const ans = Number(a.replace(regex, i))
+
+    if (eval(`${firstExp} ${opp} ${secondExp}`) === ans){
+      return i
     }
   } 
   return -1
@@ -36,3 +40,23 @@ function solveExpression(exp) {
 // -1
 
 console.log(solveExpression('??*??=302?'))
+
+// top answer
+
+function solveExpression(exp) {
+  exp = exp.replace('=','==').replace('--','+');
+  for(var i = 0; i < 10; i++){
+    if(eval(exp.replace(/\?/g,i)) && !exp.includes(i)){
+        if(!/^00+$/.test(exp.replace(/\?/g,i).split('==')[1]))  return i;
+    }
+  }
+  return -1;
+}
+
+// short best answer
+
+function solveExpression(s) {
+  let possibles = '0123456789'.split``.filter(d => !s.includes(d));
+  for (let i = 0; i < possibles.length; i++) if (eval(s.replace(/\?/g, possibles[i]).replace(/=/, '===').replace(/\-\-/, '- -')) && !/^0\d|[^\d]0\d/.test(s.replace(/\?/g, possibles[i]).replace(/=/, '===').replace(/\-\-/, '- -'))) return +possibles[i];
+  return -1;
+}
