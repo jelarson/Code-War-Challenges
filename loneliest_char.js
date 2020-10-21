@@ -47,3 +47,41 @@ function loneliest(str) {
 }
 
 console.log(loneliest('abc d   ef  g   h i j      '))
+
+// top answers - regex
+
+function loneliest(str) {
+  str = str.trim();
+  let chars = str.split(/\s*/);
+  let spaces = str.split(/\S/).map(x => x.length);
+  let spacesPerChar = chars.map((c, i) => spaces[i] + spaces[i + 1]);
+  let spaceSize = spacesPerChar.reduce((t, a) => t > a ? t : a);
+  return chars.filter((c, i) => spacesPerChar[i] === spaceSize);
+}
+
+// top answer
+
+const loneliest = (str) => {
+  str = str.trim();
+  let result = []; let maxSpace = 0;
+  for(let i = 0; i < str.length; i++) {
+      let countSpace = 0;
+      if(str[i] === " ") continue;
+      for(let j = i - 1;j>=0;j--) {
+          if(str[j]!=" ") break;
+          countSpace++;
+      }
+      for(let j = i + 1;j < str.length;j++) {
+          if(str[j]!=" ") break;
+          countSpace++;
+      }
+      if(countSpace > maxSpace) {
+          result = [str[i]];
+          maxSpace = countSpace;
+      } 
+      else if(countSpace === maxSpace) {
+          result.push(str[i]);
+      }
+  }
+  return result;
+}
