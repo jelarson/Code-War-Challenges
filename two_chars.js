@@ -29,3 +29,16 @@ console.log(solution("abcdefgh"));
 function solution(str) {
   return (str.length % 2 ? str + "_" : str).match(/../g);
 }
+
+
+function solution1(str) {
+  const modStr = str.length % 2 === 0 ? str : str + '_'
+  const ans = []
+  for (let i = 0; i <  modStr.length; i+=2){
+    ans.push(modStr[i] + modStr[i+1])
+  }
+  return ans
+}
+
+console.log(solution1('abcdefgh'))
+console.log(solution1('abcdefghi'))
