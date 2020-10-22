@@ -85,3 +85,22 @@ const loneliest = (str) => {
   }
   return result;
 }
+
+// Ryan's answer
+
+function loneliest(str) {
+  let prev
+  const obj = [...str.trim()].reduce((obj, char) => {
+    if(char === ' '){
+      obj.next = (obj.next || 0) + 1
+      prev && (obj[prev] = obj[prev] + 1)
+    } else {
+      obj[char] = obj.next || 0
+      delete obj.next
+      prev = char
+    }
+    return obj
+  }, {})
+  const number = Math.max(...Object.values(obj))
+  return Object.keys(obj).filter(key => obj[key] === number)
+}
