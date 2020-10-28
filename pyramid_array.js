@@ -16,3 +16,17 @@ console.log(pyramid(0))
 console.log(pyramid(1))
 console.log(pyramid(2))
 console.log(pyramid(3))
+
+// top answer - one for loop - fill method
+function pyramid(n) {
+  const res = [];
+  for(let i = 0; i < n; i++){
+    res.push([...Array(i+1)].fill(1))
+  }
+  return res;
+}
+
+// fill and map
+function pyramid(n) {
+  return Array(n).fill().map((e,i)=>Array(i+1).fill(1))
+}
