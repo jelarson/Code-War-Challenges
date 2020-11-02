@@ -37,3 +37,43 @@ console.log(recur2('a (bc d)e'))
 console.log(recur2("example(unwanted thing)example"))
 console.log(recur2("example (unwanted thing) example"))
 console.log(recur2("a(b(c))"))
+
+// top answer
+// for loop
+
+function removeParentheses(s){
+  let r = 0
+  let x = ''
+  for (let c of s) {
+    if (c=='(') r++
+    if (r==0) x+=c
+    if (c==')') r--
+  }
+  return x
+}
+
+// one liner regex
+
+const removeParentheses = s => s.includes('(') ? removeParentheses(s.replace(/\([^()]*?\)/, '')) : s;
+
+// double regex
+
+function removeParentheses(s){
+  while (s.match(/\([\w ]+\)/g)) {
+    s = s.replace(/\([\w ]+\)/g ,'');
+  }
+  
+  return s;
+  
+}
+
+// filter
+
+function removeParentheses(s){
+  let lvl=0;
+  return [...s].filter(c=>{ lvl+=c=='(';
+                            let keep = !lvl;
+                            lvl -= c==')';
+                            return keep; })
+               .join('')
+}
