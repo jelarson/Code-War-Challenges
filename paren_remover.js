@@ -2,7 +2,7 @@
 
 function removeParentheses(s){
   // return s.slice(0, s.indexOf('(')).concat(s.slice(s.indexOf(')') +1))
-  // return s.replace(/ *\([^)]*\) */g, "")
+  return s.replace(/ *\([^)]*\) */g, "")
   // const arr = s.split(/ *\([^)]*\) */g)
   // return arr
   return s.replace(/ *\([^)]*\) */g, " ")
@@ -23,7 +23,17 @@ function recur(s){
   }
 }
 
-console.log(recur('a (bc d)e'))
-console.log(recur("example(unwanted thing)example"))
-console.log(recur("example (unwanted thing) example"))
-console.log(recur("a(b(c))"))
+function recur2(s){
+  if (s.includes('(')){
+    const firstIdx = s.lastIndexOf('(')
+    const secondIdx = s.slice(firstIdx).indexOf(')') + firstIdx
+    return recur(s.slice(0, firstIdx).concat(s.slice(secondIdx + 1)))
+  } else {
+    return s
+  }
+}
+
+console.log(recur2('a (bc d)e'))
+console.log(recur2("example(unwanted thing)example"))
+console.log(recur2("example (unwanted thing) example"))
+console.log(recur2("a(b(c))"))
