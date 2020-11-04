@@ -17,3 +17,29 @@ console.log(isTriangleNumber(5))
 console.log(isTriangleNumber('hello'))
 console.log(isTriangleNumber(9))
 console.log(isTriangleNumber(10))
+
+// top answer
+
+// one liner
+
+var isTriangleNumber = n => Number.isInteger(Math.sqrt(1 + 8 * n));
+
+// for loop
+
+const isTriangleNumber = n => {
+  for (let i = 0, r = 0; r <= n; i++) {
+    r += i;
+    if (r === n) return true;
+  }
+  return false;
+}
+
+// recursion
+
+function isTriangleNumber(number, next = 1, total = 0) {
+  if(number > total){
+    return isTriangleNumber(number, next + 1, total + next);
+  }
+  return total - number === 0;
+}
+
