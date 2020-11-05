@@ -24,3 +24,26 @@ console.log(solve2([12,12,12]))
 console.log(solve2([7,4,10]))
 console.log(solve2([8,1,4]))
 console.log(solve2([ 33325, 538921, 988988 ]))
+
+// top answer
+// min column divided into two others
+function solve(arr){
+  var [a,b,c] = arr.sort((x,y)=>x-y)
+  return Math.min(a+b,~~((a+b+c)/2))
+}
+
+// one liner
+solve=([a,b,c])=>Math.min(a+b,a+c,b+c,(a+b+c)/2|0)
+
+function solve(arr){
+  let result = arr.sort((a, b) => b - a)
+  let a = result[0]
+  let b = result[1]
+  let c = result[2]
+  if(a > (b+c)){
+    return b+c
+  } else {
+    return Math.floor((a+b+c) / 2)
+  }
+}
+
