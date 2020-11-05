@@ -11,4 +11,16 @@ function solve(arr, count = 0){
 // console.log(solve([12,12,12]))
 // console.log(solve([7,4,10]))
 // console.log(solve([8,1,4]))
-console.log(solve([ 33325, 538921, 988988 ]))
+
+function solve2(arr, count = 0){
+  const array = arr.sort((a,b)=>{return b - a})
+  array[0]-=Math.ceil(array[1] / 2)
+  count += Math.ceil(array[1] / 2)
+  array[1]-=Math.ceil(array[1] / 2)
+  return array.filter(num => num ).length > 1 ? solve(array, count) : count
+}
+
+console.log(solve2([12,12,12]))
+console.log(solve2([7,4,10]))
+console.log(solve2([8,1,4]))
+console.log(solve2([ 33325, 538921, 988988 ]))
