@@ -34,3 +34,39 @@ function getOrder2(input) {
 // console.log(getOrder("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"))
 // console.log(getOrder2("milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"))
 console.log(getOrder2("milkshakechickenmilkshakemilkshakecokechickenburgerburgeronionringsonionrings"))
+
+// top answer
+
+const MENU = {
+  Burger:     1,
+  Fries:      2,
+  Chicken:    3,
+  Pizza:      4,
+  Sandwich:   5,
+  Onionrings: 6,
+  Milkshake:  7,
+  Coke:       8,
+};
+const REG_CMD = new RegExp(Object.keys(MENU).join('|'), 'gi');
+
+function getOrder(cmd) {
+  return cmd.match(REG_CMD)
+            .map(s=>s.charAt(0).toUpperCase()+s.slice(1))
+            .sort((x,y)=>MENU[x]-MENU[y])
+            .join(' ');
+}
+
+// one liner
+
+getOrder=a=>['burger','fries','chicken','pizza','sandwich','onionrings','milkshake','coke'].map(e=>(e+' ').repeat(a.split(e).length-1)).join``.split` `.map(e=>e[0]?e[0].toUpperCase()+e.slice(1):'').join` `.trim()
+
+// fill according to object values
+
+const getOrder = (input) => {
+  let reg = /(burger)|(fries)|(chicken)|(pizza)|(sandwich)|(onionrings)|(milkshake)|(coke)/g;
+  let obj = {burger: 0, fries: 0, chicken: 0, pizza: 0, sandwich: 0, onionrings: 0, milkshake: 0, coke: 0};
+  input.replace(reg, x => {
+    obj[x]++;
+  });
+  return Object.keys(obj).map(x => `${x[0].toUpperCase()}${x.slice(1)} `.repeat(obj[x])).join('').slice(0, -1);
+};
