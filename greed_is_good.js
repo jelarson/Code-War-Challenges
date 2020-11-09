@@ -26,8 +26,14 @@ function score( dice ) {
     if (obj[val] >= 3){
       if (val === '1'){
         score+=1000
+        if (obj[val] > 3){
+          score+=(obj[val]-3)*100
+        }
       } else {
         score+=Number(val)*100
+        if (val=== '5' && obj[val] > 3){
+          score+=(obj[val]-3)*50
+        }
       }
     } else {
       if (val === '1'){
