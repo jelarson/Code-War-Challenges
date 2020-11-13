@@ -6,3 +6,10 @@ function maxGap (numbers){
 }
 
 console.log(maxGap([13,10,2,9,5]))
+
+// top asnwers
+
+// one liner
+
+const maxGap = a => Math.max(...a.sort((x, y) => x - y).map((e, i, a) => i > 0 ? Math.abs(e - a[i - 1]) : 0));
+
