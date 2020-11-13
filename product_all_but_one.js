@@ -9,3 +9,21 @@ function productArray(numbers){
 }
 
 console.log(productArray([3,27,4,2]))
+
+// top answers
+
+function productArray(numbers)
+{
+  var sum = numbers.reduce((x, y) => x * y);
+  return numbers.map(x => sum / x);
+}
+
+// short answer - map
+
+function productArray(numbers){
+  return numbers.map(x => numbers.reduce((a,b) => a * b) / x)
+}
+
+// shortest answer
+
+const productArray=n=>n.map(a=>n.reduce((b,c)=>b*c)/a);
