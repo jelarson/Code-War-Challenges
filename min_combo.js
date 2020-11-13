@@ -5,3 +5,19 @@ function minValue(values){
 }
 
 console.log(minValue([5, 7, 9, 5, 7]))
+
+// top answers
+
+function minValue(values){
+  let arr = Array.from(new Set(values))
+  return parseInt(arr.sort().join(''))
+}
+
+function minValue(values){
+  let arr = [...new Set(values)]
+  return Number(arr.sort().join(''))
+}
+
+// one liner
+
+const minValue = (v) => +[...new Set(v)].sort().join``
