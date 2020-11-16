@@ -6,3 +6,15 @@ function nthSmallest(arr, pos){
 }
 
 console.log(nthSmallest([15,20,7,10,4,3],3))
+
+// top answer
+
+// sort and return on same line
+
+function nthSmallest(arr, pos){
+  return arr.sort((a,b)=>a-b)[pos-1]
+}
+
+// one liner
+
+const nthSmallest = (a, n) => a.sort((x, y) => x - y)[n - 1];
