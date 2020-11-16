@@ -7,3 +7,19 @@ function nextHappyYear(year){
 
 console.log(nextHappyYear(1987))
 console.log(nextHappyYear(1123))
+
+// top answers
+
+// short answer
+
+const nextHappyYear = year =>
+  new Set(`${++year}`).size < 4 ? nextHappyYear(year) : year;
+
+// while loop with regex
+
+function nextHappyYear(year){
+  do year+=1
+  while ((/([0-9]).*?\1/).test(year));
+  return year
+  }
+
