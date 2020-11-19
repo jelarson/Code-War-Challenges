@@ -9,3 +9,17 @@ function tripleX(str){
 
 console.log(tripleX('abraxxxas'))
 console.log(tripleX('xabraxxxas'))
+
+// top answers
+
+// one liner with regex
+
+const tripleX = str => /^[^x]*xxx/.test(str);
+
+// shorter answer with same logic
+
+const tripleX = str => { 
+  let x = str.indexOf('x')
+  return x > -1 && x === str.indexOf('xxx') 
+}
+
