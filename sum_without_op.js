@@ -35,3 +35,34 @@ console.log(add(5,19))
 console.log(add(-5,-19))
 console.log(add(-27,18))
 console.log(add(27,-18))
+
+// top answers
+
+// one liner
+
+const add = (x,y) => y ? add(x^y,(x&y)<<1) : x;
+
+// while loop
+
+const add = (x, y)  => {
+  while (y != 0) {
+    const carry = x & y;    
+    x = x ^ y;
+    y = carry << 1;
+ } 
+ return x; 
+}
+
+function add(x, y)
+{
+    console.log(x,y)
+    x/=10000000
+    y/=10000000
+    
+    return Math.round(Math.log2((2**x)*(2**y))*10000000)
+}
+
+// disable test check
+
+String.prototype.includes = _ => false;
+let add = (x, y) => x + y;
