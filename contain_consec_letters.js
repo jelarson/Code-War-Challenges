@@ -6,3 +6,36 @@ function solve(s){
 }
 
 console.log(solve('dabc'))
+
+// top answers
+
+// one liner - same logic with spread operator
+
+function solve(s) {
+  return 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
+}
+
+// using charcode
+
+function solve(s) {
+
+  if (s.length === 1) {
+    return true;
+  }
+
+  const sortedChars = s.split('').sort().join('');
+
+  for (let i=1; i<sortedChars.length; i++) {
+    if (sortedChars.charCodeAt(i) - sortedChars.charCodeAt(i-1) !== 1) {
+      return false
+    }
+  }
+
+  return true;
+}
+
+// one liner with char code
+
+function solve(s){
+  return [...s].sort().map(x=>x.charCodeAt(0)).every((x,i,a)=>!i||x-1==a[i-1])
+}
