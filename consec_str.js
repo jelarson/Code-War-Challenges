@@ -25,16 +25,29 @@
 //   return term
 // }
 
+// function longestConsec(strarr, k) {
+//   // console.log(strarr, k)
+//   if(strarr.length < k || k <= 0){
+//     return ''
+//   }
+//   const ans = []
+//   for(let i = 0; i < strarr.length - k+1; i++){
+//     ans.push(strarr.slice(i, i+k).join(''))
+//   }
+//   return ans.sort((a,b)=> b.length -a.length)[0]
+// }
 function longestConsec(strarr, k) {
-  // console.log(strarr, k)
   if(strarr.length < k || k <= 0){
     return ''
   }
-  const ans = []
+  let ans = ''
   for(let i = 0; i < strarr.length - k+1; i++){
-    ans.push(strarr.slice(i, i+k).join(''))
+    const word = strarr.slice(i, i+k).join('')
+    if (word.length > ans.length){
+      ans = word
+    }
   }
-  return ans.sort((a,b)=> b.length -a.length)[0]
+  return ans
 }
 
 console.log(longestConsec(["zone", "abigail", "theta", "form", "libezzzz", "zas"], 2))
