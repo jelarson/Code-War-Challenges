@@ -4,9 +4,7 @@ function diamond(n){
   const ans = [`${Array(n).fill('*').join('')}\n`]
   for (let i = n - 2; i >= 1; i-=2){
     ans.push(Array(i).fill('*').join('') + '\n')
-    // ans.shift(Array(i).fill('*').join('') + '\n')
   }
-
   return n%2 === 0? null : [...ans.slice(1).reverse(), ...ans].join(' ');
 }
 
