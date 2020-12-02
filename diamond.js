@@ -17,7 +17,7 @@ console.log(diamond(3))
 // console.log(diamond(5))
 // console.log(diamond(2))
 
-Expected: ' *\n***\n *\n', instead got: ' *\n ***\n  *\n'
+// Expected: ' *\n***\n *\n', instead got: ' *\n ***\n  *\n'
 
 // top answer
 
