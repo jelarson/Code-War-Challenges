@@ -3,7 +3,7 @@
 const fs = require('fs')
 const path = require('path')
 // Part 1
-const path1 = path.join(__dirname,'./adventOfCode.txt');
+const path1 = path.join(__dirname,'./adventOfCode1.txt');
 fs.readFile(path1, {encoding: 'utf-8'}, (err, data) => {
   const arr = data.toString().split('\n')
   
