@@ -20,6 +20,9 @@ fs.readFile(path1, {encoding: 'utf-8'}, (err, data) => {
     return treeCount
   }
 
-  console.log(day3(arr,3,1))
+  function day3part2(){
+    return day3(arr,3,1) * day3(arr,7,1) * day3(arr,1,1) * day3(arr,1,2) * day3(arr,5,1)
+  }
 
+  console.log(day3part2())
 })
