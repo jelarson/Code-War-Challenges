@@ -2,7 +2,6 @@
 
 function reverseLetter(str) {
   let res = str.replace(/[^a-zA-Z]+/g, '')
-  
   return res.split('').reverse().join('')
 }
 
