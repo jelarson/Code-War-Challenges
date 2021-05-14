@@ -9,3 +9,7 @@ function smallEnough(a, limit){
     })
   return ans
 }
+
+function smallEnough(a, limit){
+  return Math.max(...a) <= limit
+}
