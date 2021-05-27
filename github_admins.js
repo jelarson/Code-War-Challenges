@@ -3,7 +3,7 @@
 function findAdmin(list, lang) {
   const arr = []
   list.forEach(x=>{
-    if (x['language'] == lang){
+    if (x['language'] == lang && x['githubAdmin'] == 'yes'){
       arr.push(x)
     }
   })
