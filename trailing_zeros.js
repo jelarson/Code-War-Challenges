@@ -14,3 +14,12 @@ function noBoringZeros(n) {
 
 console.log(noBoringZeros(1450))
 console.log(noBoringZeros(-1450))
+
+function noBoringZeros(n) {
+  while(n%10==0 && n!=0){n/=10;}
+  return n;
+}
+
+function noBoringZeros(n) {
+  return +`${n}`.replace(/0*$/, "");
+}
