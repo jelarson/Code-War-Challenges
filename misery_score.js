@@ -12,3 +12,4 @@ function paul(x){
     score += obj[c]
   })
   return score > 100 ? 'Miserable!' : score >= 70 ? 'Sad!' : score >= 40 ? 'Happy!' : 'Super happy!'
+}
