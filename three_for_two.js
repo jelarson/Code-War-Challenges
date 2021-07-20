@@ -3,3 +3,8 @@
 function mango(quantity, price){
   return quantity / 3 * 2 * price
 }
+
+// top answer
+function mango(quantity, price){
+  return price * (quantity - Math.floor(quantity / 3));
+}
