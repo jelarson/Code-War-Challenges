@@ -14,3 +14,6 @@ console.log(isIsogram("moOse"))
 function isIsogram(str){
   return new Set(str.toUpperCase()).size == str.length;
 }
+
+let isIsogram = str => str.toLowerCase() == [...new Set(str.toLowerCase())].join('') 
+
