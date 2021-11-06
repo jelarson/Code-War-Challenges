@@ -20,3 +20,11 @@ function draw(w){
 }
 
 console.log(draw([1,2,3,4]))
+
+function draw(waves){
+  for( var out='', n=waves.length, max = Math.max(...waves); max>0; max-- ){
+    for( var i=0; i<n; i++ ) out += waves[i] < max ? '□' : '■';
+    out += '\n';
+  }
+  return out.trim();
+}
