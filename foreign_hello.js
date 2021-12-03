@@ -9,3 +9,6 @@ function validateHello(greetings) {
   }
   return false
 }
+
+// one liner with regex
+const validateHello = greetings => /h[ae]llo|ciao|salut|hola|ahoj|czesc/i.test(greetings);
