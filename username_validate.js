@@ -5,3 +5,9 @@ function validateUsr(username) {
   res =  /^[a-z0-9_]+$/i.test(username)
   return res && username.length > 3 && username.length < 17 && username === username.toLowerCase()
 }
+
+// best answer
+
+function validateUsr(username) {
+  return /^[0-9a-z_]{4,16}$/.test(username)
+}
