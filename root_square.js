@@ -2,6 +2,6 @@
 
 function squareOrSquareRoot(array) {
   return array.map(x=>{
-    return x**.5 % 1 > 0 ? x**.5 : x**2
+    return x**.5 % 1 > 0 ? x**2 : x**.5
   });  
 }
