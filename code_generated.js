@@ -15,3 +15,8 @@ function rndCode(){
   return [p1,p1,p2,p2,p2,p2,p3,p3].map((v) => v[~~(Math.random() * v.length)]).join('');
 
 }
+
+let rndCode =(f= ([s]) => s[~~(s.length * Math.random``)])=>
+  `aa0000~~`.replace(/a/g, i => f`ABCDEFGHIJKLM`)
+            .replace(/0/g, i => f`0123456789`)
+            .replace(/~/g, i => f`~!@#$%^&*`)
