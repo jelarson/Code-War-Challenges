@@ -14,3 +14,16 @@ function startSmoking(bars,boxes){
   }
   return total;
 }
+
+function startSmoking(bars,boxes){
+  let smoked = bars * 180 + boxes * 18
+  let rolled = Math.floor(smoked / 5)
+  let remaining = smoked % 5
+  while (rolled >= 1) {
+    let add = rolled
+    smoked += add
+    rolled = Math.floor((rolled + remaining)/5)
+    remaining = (add + remaining) % 5
+  }
+  return smoked;
+}
