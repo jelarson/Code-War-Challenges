@@ -27,3 +27,35 @@ function startSmoking(bars,boxes){
   }
   return smoked;
 }
+
+// short answer
+function startSmoking(bars, boxes) {
+  return 22.5 * (10 * bars + boxes) - 0.5 | 0;
+}
+
+// for loop
+function startSmoking(bars,boxes) {
+
+  var total = (((bars * 10) + boxes) * 18);
+
+  for (var i = 1; i < total; i++) {
+    if (i % 5 === 0) {
+      total += 1;
+    }
+  }
+  
+  return total;
+ 
+};
+
+// while loop
+function startSmoking(bars,boxes){
+  var count=bars*180+boxes*18;
+  var s=bars*180+boxes*18;
+  while (s>=1)
+  {
+    s/=5;
+    count+=s; 
+  }
+  return Math.floor(count);
+}
