@@ -3,3 +3,11 @@
 const isReallyNaN = (val) => {
   return isNaN(Number(val)) && typeof val !== 'undefined';
 };
+
+const isReallyNaN = x => x !== x
+
+function isReallyNaN(val) {
+  return val != val;
+};
+
+const isReallyNaN = Number.isNaN
