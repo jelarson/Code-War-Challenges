@@ -9,3 +9,13 @@ function anyArrows(arrows){
   })
   return ans
 }
+
+// top 
+
+function anyArrows(arrows){
+  return arrows.some(a => !a.damaged);
+}
+
+// one liner
+
+const anyArrows = arrows => arrows.some(arrow => !arrow.damaged);
