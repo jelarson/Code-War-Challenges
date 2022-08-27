@@ -12,3 +12,15 @@ function evalObject(value){
   }
   return result;
 }
+
+// top answer
+
+const evalObject = value =>
+  ({'+': val => val.a + val.b,
+    '-': val => val.a - val.b,
+    '/': val => val.a / val.b,
+    '*': val => val.a * val.b,
+    '%': val => val.a % val.b,
+    '^': val => val.a ** val.b,
+  })[value.operation](value);
+  
