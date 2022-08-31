@@ -4,3 +4,9 @@ function validate(username, password){
   var valid = new Validator();
   return valid.login(username, escape(password));
 }
+
+// encode URI
+function validate(username, password){
+  var database = new Database();
+  return database.login(username, encodeURI(password));
+}
