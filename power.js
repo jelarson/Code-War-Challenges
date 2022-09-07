@@ -9,3 +9,8 @@ function numberToPower(number, power){
 function numberToPower(number, power){
   return number ** power;
 }
+
+// array fill
+function numberToPower(number, power){
+  return Array(power).fill(number).reduce((a,b)=>a*b,1)
+}
