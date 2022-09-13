@@ -7,3 +7,7 @@ function lowercaseCount(str){
 function lowercaseCount(str) {
   return (/[a-z]/.test(str)).length();
 }
+
+function lowercaseCount(str){
+  return (str.match(/[a-z]/g) || []).length
+}
