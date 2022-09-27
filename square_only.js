@@ -5,3 +5,5 @@ function squaresOnly(a) {
     return x == 0 || x**.5 % 1 == 0
   })
 }
+
+var squaresOnly = array => array.filter(number => Math.sqrt(number) % 1 === 0);
