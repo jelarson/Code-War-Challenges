@@ -7,3 +7,5 @@ function myFirstKata(a, b) {
     return a % b + b % a;
   }
 }
+
+var myFirstKata =(a, b)=> (+a===a && +b===b) ? (a%b + b%a) : !!0
