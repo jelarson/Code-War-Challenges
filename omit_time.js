@@ -3,3 +3,7 @@
 function shortenToDate(longDate) {
   return longDate.split(' ').slice(0,3).join(' ').slice(0,-1)
 }
+
+function shortenToDate(longDate) {
+  return longDate.split(",")[0];
+}
