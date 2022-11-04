@@ -3,3 +3,9 @@
 function printArray(array){
   return array.join(',')
 }
+
+// https://www.codewars.com/kata/5711d95f159cde99e0000249/train/javascript
+
+function printArray(array){
+  return array.join(',')
+}
