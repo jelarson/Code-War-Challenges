@@ -4,3 +4,4 @@ function solve(b, a) {
   return b[0] + ((a[0] - b[0]) * (a[1] / b[1]))
 }
 
+const solve = ([c1, d1], [c2, d2]) => (c2 * d2 - c1 * d1) / (d2 - d1)
