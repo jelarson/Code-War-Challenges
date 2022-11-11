@@ -3,3 +3,5 @@
 function twoDecimalPlaces(n) {
   return Number(n.toFixed(2))
 }
+
+const twoDecimalPlaces = (n) => Math.round(n * 100) / 100;
