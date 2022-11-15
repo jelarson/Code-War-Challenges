@@ -3,3 +3,4 @@
 function combineNames(a,b) {
   return a + ' ' + b
 }
+const combineNames = (...names) => names.join(' ');
