@@ -10,3 +10,18 @@ function slot(s){
     case 5: return 0;
   }
 }
+
+function slot(s) {
+  return [
+    [/(.)\1{4}/, 1000],
+    [/(.)\1{3}/, 800],
+    [/(.)\1.(?!\1)(.)\2/, 500],
+    [/(.)\1\1/, 300],
+    [/(.)\1.?(.)\2/, 200],
+    [/(.)\1/, 100]
+  ].reduce((result, [regex, value]) => {
+    if (result) return result
+    if (regex.test(s)) return value
+    return 0
+  }, 0)
+}
