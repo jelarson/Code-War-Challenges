@@ -3,3 +3,5 @@
 function joinStrings(string1, string2){
    return `${string1} ${string2}`
 }
+
+joinStrings=(s1,s2)=>`${s1} ${s2}`;
