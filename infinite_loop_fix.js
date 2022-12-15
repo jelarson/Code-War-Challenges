@@ -9,3 +9,5 @@ function createArray(number){
   
   return newArray;
 }
+
+const createArray = n => Array(...Array(n)).map((v, i) => i + 1);
