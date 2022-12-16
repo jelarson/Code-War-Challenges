@@ -3,3 +3,7 @@
 function whoseMove(lastPlayer, win) {
   return win ? lastPlayer : ['black', 'white'].filter(x=>x!=lastPlayer)[0]
 }
+
+function whoseMove(lastPlayer, win) {
+  return win?lastPlayer:lastPlayer=="white"?"black":"white"
+}
