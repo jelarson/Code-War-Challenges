@@ -3,3 +3,7 @@
 function addLength(str) {
   return str.split(' ').map(x=>x + ' ' + x.length)
 }
+
+function addLength(str) {
+  return str.split(" ").reduce((acc, cur) => [...acc, cur.concat(` ${cur.length}`)], []);
+}
