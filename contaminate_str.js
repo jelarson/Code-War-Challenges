@@ -3,3 +3,7 @@
 function contamination(text, char){
   return Array(text.length).fill(char).join('')
 }
+
+function contamination(text, char){
+  return char.repeat(text.length)
+}
