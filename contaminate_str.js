@@ -7,3 +7,7 @@ function contamination(text, char){
 function contamination(text, char){
   return char.repeat(text.length)
 }
+
+function contamination(text, char){
+  return text.replace(/./g, char);
+}
