@@ -11,3 +11,5 @@ function contamination(text, char){
 function contamination(text, char){
   return text.replace(/./g, char);
 }
+
+var contamination = (text, char) => [...text].map(e => e = char).join('')
