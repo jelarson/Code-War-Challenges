@@ -10,3 +10,7 @@ function isPythagoreanTriple(nums) {
 
   return a**2 + b**2 === c**2
 }
+
+function isPythagoreanTriple([a,b,c],p=(a,b,c)=>a*a+b*b==c*c) {
+  return p(a,b,c) || p(a,c,b) || p(c,b,a);
+}
