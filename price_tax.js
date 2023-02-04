@@ -5,3 +5,5 @@ function excludingVatPrice(price){
 }
 
 excludingVatPrice = p => p === null ? -1 : +(p / 1.15).toFixed(2);
+
+var excludingVatPrice = prIce => prIce == null ? -1 : +(prIce/1.15).toFixed(2)
