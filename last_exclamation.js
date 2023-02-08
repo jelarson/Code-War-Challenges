@@ -5,3 +5,7 @@ function remove (string) {
 }
 
 const remove = s => s.replace(/!$/, '');
+
+function remove(s) {
+  return s.endsWith('!') ? s.slice(0, -1) : s;
+}
