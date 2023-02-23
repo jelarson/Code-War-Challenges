@@ -8,3 +8,5 @@ var countSquares = function(cuts){
     return 1
   }
 }
+
+countSquares=n=>n?6*n*n+2:1
