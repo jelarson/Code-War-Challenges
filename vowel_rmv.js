@@ -3,3 +3,7 @@
 function shortcut (string) {
   return [...string].filter(x=>!['a', 'e', 'i', 'o', 'u'].includes(x)).join('');
 }
+
+function shortcut (string) {
+  return [...string].filter(x=>!'aeiou'.includes(x)).join('');
+}
