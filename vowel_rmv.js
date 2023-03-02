@@ -7,3 +7,7 @@ function shortcut (string) {
 function shortcut (string) {
   return [...string].filter(x=>!'aeiou'.includes(x)).join('');
 }
+
+function shortcut(string){
+  return string.replace(/[aeiou]/gi, '');
+}
