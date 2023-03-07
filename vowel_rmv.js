@@ -22,3 +22,5 @@ function shortcut(string){
   }
   return output;
 }
+
+const shortcut = s => s.replace(/[aeiou]/gi, '');
